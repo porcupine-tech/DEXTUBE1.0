@@ -1,0 +1,254 @@
+/* Basic Reset and Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f1f1f1; /* Light text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header/Top Navigation */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1d1d1d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    color: #4CAF50; /* Dextube accent color */
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    background-color: #2c2c2c;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #f1f1f1;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-icon {
+    color: #888;
+    margin-left: 10px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.action-icon {
+    font-size: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* Main Content and Layout */
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: #1d1d1d;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.nav-list, .subscriptions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item, .subscription-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #ccc;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover, .subscription-item:hover {
+    background-color: #333;
+}
+
+.nav-item.active {
+    background-color: #333;
+    border-left: 3px solid #4CAF50;
+    color: #fff;
+}
+
+.nav-icon {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar hr {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    margin: 15px 20px;
+}
+
+.sidebar-heading {
+    color: #aaa;
+    font-size: 14px;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+.creator-pic {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Video Grid and Content */
+.video-grid-container {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.skill-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.filter-button {
+    background-color: #333;
+    color: #f1f1f1;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-button:hover {
+    background-color: #444;
+}
+
+.filter-button.active {
+    background-color: #f1f1f1;
+    color: #121212;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.video-grid.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+.video-grid.horizontal-scroll .video-card {
+    min-width: 300px;
+}
+
+.video-card {
+    background-color: #1d1d1d;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-info {
+    padding: 10px;
+}
+
+.video-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-creator, .video-views {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+}

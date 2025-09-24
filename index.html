@@ -19,8 +19,16 @@
                 <input type="text" placeholder="Search Dextube">
                 <i class="fas fa-search search-icon"></i>
             </div>
+            
             <div class="user-actions">
-                <i class="fas fa-upload action-icon"></i>
+                <button 
+                    onclick="document.getElementById('upload-popup-modal').style.display='block';" 
+                    class="action-icon"
+                    style="background: none; border: none; padding: 0; color: #ccc; cursor: pointer; font-size: 20px;"
+                    title="Upload Video">
+                    <i class="fas fa-upload"></i>
+                </button>
+
                 <i class="fas fa-bell action-icon"></i>
                 <div class="user-profile">
                     <img src="https://via.placeholder.com/32" alt="User Profile" class="profile-pic">
@@ -70,31 +78,7 @@
                             <p class="video-views">1.2M Views</p>
                         </div>
                     </div>
-                    <div class="video-card">
-                        <img src="https://via.placeholder.com/350x200" alt="Video Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">Advanced Digital Painting</h3>
-                            <p class="video-creator">ArtStationPro</p>
-                            <p class="video-views">875K Views</p>
-                        </div>
                     </div>
-                    <div class="video-card">
-                        <img src="https://via.placeholder.com/350x200" alt="Video Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">The Science of Sourdough</h3>
-                            <p class="video-creator">TheBaker'sLab</p>
-                            <p class="video-views">560K Views</p>
-                        </div>
-                    </div>
-                    <div class="video-card">
-                        <img src="https://via.placeholder.com/350x200" alt="Video Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">Custom PC: Watercooling</h3>
-                            <p class="video-creator">TechGuruPro</p>
-                            <p class="video-views">980K Views</p>
-                        </div>
-                    </div>
-                </div>
 
                 <h2 class="section-title">New from Your Subscriptions</h2>
                 <div class="video-grid horizontal-scroll">
@@ -106,17 +90,29 @@
                             <p class="video-views">25K Views</p>
                         </div>
                     </div>
-                    <div class="video-card">
-                        <img src="https://via.placeholder.com/350x200" alt="Video Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">Sculpting in Blender</h3>
-                            <p class="video-creator">ArtStationPro</p>
-                            <p class="video-views">15K Views</p>
-                        </div>
                     </div>
-                </div>
             </section>
         </main>
     </div>
+
+    <div id="upload-popup-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="video-upload-section" style="padding: 20px; background-color: #1d1d1d; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); width: 400px; max-width: 90%;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Upload New Project</h2>
+                <span onclick="document.getElementById('upload-popup-modal').style.display='none'" style="cursor: pointer; font-size: 24px;">&times;</span>
+            </div>
+            
+            <input type="file" id="video-upload-input" accept="video/*" style="display: block; width: 100%; margin: 15px 0;">
+            
+            <button onclick="uploadVideo()" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; display: block; width: 100%; margin-top: 10px;">
+                Start Upload
+            </button>
+            
+            <p id="status" style="margin-top: 20px; color: #aaa;">Status: Awaiting file selection.</p>
+            <p id="cidOutput" style="word-break: break-all; font-size: 14px; margin-top: 10px;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

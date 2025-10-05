@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dextube Player</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Simple styling for the player page */
+        body { background-color: #121212; color: #f1f1f1; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
+        #main-video { max-width: 900px; width: 100%; height: auto; border-radius: 8px; }
+        #cid-display { margin-top: 15px; font-size: 14px; color: #aaa; }
+    </style>
+</head>
+<body>
+    <video id="main-video" controls autoplay></video>
+    <p id="cid-display">Loading...</p>
+
+    <script>
+        const IPFS_GATEWAY = 'https://ipfs.io/ipfs/'; 
+
+        function playVideo() {
+            // 1. Get the video CID from the URL parameter (e.g., ?cid=Qm...)
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoCid = urlParams.get('cid');
+
+            const videoElement = document.getElementById('main-video'); 
+            const cidDisplay = document.getElementById('cid-display');
+
+            if (videoCid) {
+                // 2. Construct the IPFS gateway URL
+                const streamUrl = IPFS_GATEWAY + videoCid;
+
+                // 3. Set the source and update display
+                videoElement.src = streamUrl;
+                cidDisplay.textContent = 'Streaming Content Hash (CID): ' + videoCid;
+            } else {
+                cidDisplay.textContent = 'Error: Video CID not found in URL.';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', playVideo);
+    </script>
+</body>
+</html>
